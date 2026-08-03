@@ -1,0 +1,10 @@
+class Solution:
+    def similarPairs(self, words):
+        count = 0
+        freq = {}
+        for word in words:
+            key = ''.join(sorted(set(word)))
+            if key in freq:
+                count += freq[key]
+            freq[key] = freq.get(key, 0) + 1
+        return count
