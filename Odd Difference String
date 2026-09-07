@@ -1,0 +1,17 @@
+class Solution:
+    def oddString(self, words):
+        def difference(word):
+            return [ord(word[i + 1]) - ord(word[i]) 
+                    for i in range(len(word) - 1)]
+        first = difference(words[0])
+        second = difference(words[1])
+        third = difference(words[2])
+        if first == second:
+            common = first
+        elif first == third:
+            common = first
+        else:
+            common = second
+        for word in words:
+            if difference(word) != common:
+                return word
